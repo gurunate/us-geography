@@ -1,0 +1,13 @@
+{
+    "name": "us-geography",
+    "description": "US Geography quiz webapp",
+    "author": "Nate Johnson",
+    "contributors": [
+        "Al Bonney"
+    ],
+    "private": true,
+    "workspaces": [
+        "data-graph",
+        "quiz-app"
+    ]
+}
