@@ -1,0 +1,18 @@
+{
+    "recommendations": [
+        "apollographql.vscode-apollo",
+        "streetsidesoftware.code-spell-checker",
+        "mikestead.dotenv",
+        "eamodio.gitlens",
+        "ms-vsliveshare.vsliveshare",
+        "ryu1kn.partial-diff",
+        "esbenp.prettier-vscode",
+        "ms-vscode-remote.remote-containers",
+        "ms-vscode-remote.remote-ssh",
+        "mtxr.sqltools",
+        "gamunu.vscode-yarn",
+        "aaron-bond.better-comments",
+        "bierner.markdown-mermaid",
+        "yzhang.markdown-all-in-one"
+    ]
+}
