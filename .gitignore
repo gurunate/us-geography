@@ -14,3 +14,4 @@ storybook-static/
 quiz-app/.env*.local
 jest-test-report/
 yarn-error.log
+node_modules
