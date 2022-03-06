@@ -2,7 +2,7 @@ const { gql } = require('apollo-server');
 
 const typeDef = gql`
     extend type Query {
-        states: [State!]
+        getStates: [State!]
     }
 
     type State {

@@ -8,44 +8,66 @@ import {
     FormLabel,
     Radio,
     RadioGroup,
+    Skeleton,
     Typography
 } from '@mui/material';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 /**
+ * Question Card component.
  *
  * @returns
  */
 const QuestionCard = props => {
-    const { question, choices, onChange } = props;
+    const { question, choices, onSelected, loading, onNextQuestion } = props;
 
     return (
         <Card>
             <CardContent>
                 <FormControl>
                     <FormLabel id="question">
-                        <Typography variant="h4" component="h2">
-                            {question}
-                        </Typography>
+                        {loading && <Skeleton variant="text" />}
+                        {!loading && (
+                            <Typography variant="h4" component="h2">
+                                {question}
+                            </Typography>
+                        )}
                     </FormLabel>
-                    <RadioGroup
-                        aria-labelledby="question"
-                        defaultValue={choices[0]}
-                        name="choices"
-                        onChange={onChange}
-                    >
-                        {choices.map(choice => (
-                            <FormControlLabel
-                                value={choice}
-                                control={<Radio />}
-                                label={choice}
-                            />
-                        ))}
-                    </RadioGroup>
+                    {loading && (
+                        <>
+                            <Skeleton variant="text" />
+                            <Skeleton variant="text" />
+                            <Skeleton variant="text" />
+                            <Skeleton variant="text" />
+                        </>
+                    )}
+                    {!loading && (
+                        <RadioGroup
+                            aria-labelledby="question"
+                            defaultValue={choices[0]}
+                            name="choices"
+                            onChange={onSelected}
+                        >
+                            {choices.map((choice, idx) => (
+                                <FormControlLabel
+                                    key={idx}
+                                    value={choice}
+                                    control={<Radio />}
+                                    label={choice}
+                                />
+                            ))}
+                        </RadioGroup>
+                    )}
                 </FormControl>
             </CardContent>
             <CardActions>
-                <Button size="small" variant="contained">
-                    Answer
+                <Button
+                    size="small"
+                    variant="contained"
+                    endIcon={<NavigateNextIcon />}
+                    onClick={onNextQuestion}
+                >
+                    Next Question
                 </Button>
             </CardActions>
         </Card>
