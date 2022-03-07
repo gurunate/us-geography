@@ -1,6 +1,7 @@
 import { ApolloProvider } from '@apollo/client';
 import { RouterContext } from 'next/dist/shared/lib/router-context';
 
+import { worker } from '../src/mocks/browser';
 import { client } from '../src/lib/apollo-client';
 
 export const decorators = [
@@ -10,6 +11,10 @@ export const decorators = [
         </ApolloProvider>
     )
 ];
+
+if (typeof global.process === 'undefined') {
+    worker.start();
+}
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },

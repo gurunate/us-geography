@@ -1,5 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import getConfig from 'next/config';
 import Head from 'next/head';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -10,8 +11,15 @@ import theme from '@/theme';
 import createEmotionCache from '@/lib/createEmotionCache';
 import { client } from '@/lib/apollo-client';
 
-const clientSideEmotionCache = createEmotionCache();
+const { publicRuntimeConfig } = getConfig();
 
+const { NEXT_PUBLIC_API_MOCKING } = publicRuntimeConfig ?? {};
+
+if (NEXT_PUBLIC_API_MOCKING === 'enabled') {
+    require('../mocks');
+}
+
+const clientSideEmotionCache = createEmotionCache();
 function MyApp({
     Component,
     emotionCache = clientSideEmotionCache,
