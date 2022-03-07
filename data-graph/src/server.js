@@ -4,6 +4,8 @@ require('dotenv').config();
 // const healthCheck = require('./lib/health-check');
 const schema = require('./schema');
 
+const port = process.env.PORT || 4000;
+
 const typeDef = gql`
     type Query
     # type Mutation
@@ -18,6 +20,6 @@ const server = new ApolloServer({
 
 // healthCheck(server);
 
-server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
+server.listen({ port }).then(({ url }) => {
     console.log(`🚀  Server ready at ${url}`);
 });

@@ -1,9 +1,20 @@
+const { shuffle } = require('../../lib/utils');
+
+console.log({ shuffle });
+
 const resolvers = {
     Query: {
-        getNextQuestion: () => ({
-            question: 'What is the capital of Illinois?',
-            choices: ['Albany', 'Montgomery', 'Springfield', 'Madison']
-        })
+        getNextQuestion: () => {
+            return {
+                question: 'What is the capital of Illinois?',
+                choices: shuffle([
+                    'Albany',
+                    'Montgomery',
+                    'Springfield',
+                    'Madison'
+                ])
+            };
+        }
     }
 };
 

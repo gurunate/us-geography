@@ -15,7 +15,7 @@ $ cd quiz-app
 $ yarn dev
 ```
 
-http://localhost:3123
+-   http://localhost:3123
 
 ### Run Data Graph
 
@@ -24,7 +24,11 @@ $ cd data-graph
 $ yarn dev
 ```
 
-http://localhost:3123/graphql
+-   http://localhost:4125
+
+#### Rewrite Proxy (pass-through)
+
+-   http://localhost:3123/graphql
 
 ## Dependencies
 
@@ -38,3 +42,4 @@ http://localhost:3123/graphql
 -   [Storybook](https://storybook.js.org/)
 -   [Testing Library](https://testing-library.com/)
 -   [Jest](https://jestjs.io/)
+-   [Iconfinder](https://www.iconfinder.com/icons/2799191/camping_maps_navigation_location_map_pin_direction_icon)
