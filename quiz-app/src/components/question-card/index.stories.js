@@ -1,4 +1,5 @@
 import React from 'react';
+import faker from '@faker-js/faker';
 
 import Component from '.';
 
@@ -13,8 +14,13 @@ export const QuestionCard = Template.bind({});
 
 QuestionCard.args = {
     loading: false,
-    question: "What's your favor color?",
-    choice: ['red', 'white', 'blue']
+    question: faker.lorem.sentence(),
+    choices: [
+        faker.lorem.word(),
+        faker.lorem.word(),
+        faker.lorem.word(),
+        faker.lorem.word()
+    ]
 };
 
 export default Stories;

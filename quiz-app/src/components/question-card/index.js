@@ -1,5 +1,7 @@
+import PropTypes from 'prop-types';
 import {
     Button,
+    Box,
     Card,
     CardActions,
     CardContent,
@@ -30,7 +32,13 @@ const QuestionCard = props => {
             <CardContent>
                 <FormControl>
                     <FormLabel id="question">
-                        {loading && <Skeleton variant="text" />}
+                        {loading && (
+                            <Skeleton
+                                variant="rectangular"
+                                width={300}
+                                height={32}
+                            />
+                        )}
                         {!loading && (
                             <Typography variant="h4" component="h2">
                                 {question}
@@ -39,16 +47,39 @@ const QuestionCard = props => {
                     </FormLabel>
                     {loading && (
                         <>
-                            <Skeleton variant="text" />
-                            <Skeleton variant="text" />
-                            <Skeleton variant="text" />
-                            <Skeleton variant="text" />
+                            <Box mt={2}>
+                                <Skeleton
+                                    variant="rectangular"
+                                    width={150}
+                                    height={22}
+                                />
+                            </Box>
+                            <Box mt={2}>
+                                <Skeleton
+                                    variant="rectangular"
+                                    width={150}
+                                    height={22}
+                                />
+                            </Box>
+                            <Box mt={2}>
+                                <Skeleton
+                                    variant="rectangular"
+                                    width={150}
+                                    height={22}
+                                />
+                            </Box>
+                            <Box mt={2}>
+                                <Skeleton
+                                    variant="rectangular"
+                                    width={150}
+                                    height={22}
+                                />
+                            </Box>
                         </>
                     )}
                     {!loading && (
                         <RadioGroup
                             aria-labelledby="question"
-                            defaultValue={choices[0]}
                             name="choices"
                             onChange={onSelected}
                         >
@@ -65,17 +96,38 @@ const QuestionCard = props => {
                 </FormControl>
             </CardContent>
             <CardActions>
-                <Button
-                    size="small"
-                    variant="contained"
-                    endIcon={<NavigateNextIcon />}
-                    onClick={onNextQuestion}
-                >
-                    Next Question
-                </Button>
+                {loading && (
+                    <Skeleton variant="rectangular" width={200} height={28} />
+                )}
+                {!loading && (
+                    <Button
+                        size="small"
+                        variant="contained"
+                        endIcon={<NavigateNextIcon />}
+                        onClick={onNextQuestion}
+                    >
+                        Next Question
+                    </Button>
+                )}
             </CardActions>
         </Card>
     );
+};
+
+QuestionCard.propTypes = {
+    choices: PropTypes.array,
+    loading: PropTypes.bool,
+    onNextQuestion: PropTypes.func,
+    onSelected: PropTypes.func,
+    question: PropTypes.string
+};
+
+QuestionCard.defaultProps = {
+    choices: [],
+    loading: false,
+    onNextQuestion: () => {},
+    onSelected: () => {},
+    question: ''
 };
 
 export default QuestionCard;
