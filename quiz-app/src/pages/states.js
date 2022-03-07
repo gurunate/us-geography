@@ -19,7 +19,7 @@ const StatesPage = () => {
         <Layout title="States">
             <ol>
                 {states?.map(state => (
-                    <li>{state.name}</li>
+                    <li key={state.name}>{state.name}</li>
                 ))}
             </ol>
         </Layout>

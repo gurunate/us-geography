@@ -1,4 +1,5 @@
 const { ApolloServer, gql } = require('apollo-server');
+require('dotenv').config();
 
 // const healthCheck = require('./lib/health-check');
 const schema = require('./schema');
@@ -17,6 +18,6 @@ const server = new ApolloServer({
 
 // healthCheck(server);
 
-server.listen().then(({ url }) => {
+server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
     console.log(`🚀  Server ready at ${url}`);
 });

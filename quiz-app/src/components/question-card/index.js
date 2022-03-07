@@ -13,6 +13,8 @@ import {
 } from '@mui/material';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
+// import styles from './styles.module.scss';
+
 /**
  * Question Card component.
  *
@@ -22,7 +24,9 @@ const QuestionCard = props => {
     const { question, choices, onSelected, loading, onNextQuestion } = props;
 
     return (
-        <Card>
+        <Card
+        // className={styles.root}
+        >
             <CardContent>
                 <FormControl>
                     <FormLabel id="question">

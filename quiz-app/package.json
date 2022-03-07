@@ -6,7 +6,9 @@
         "dev": "next dev -p 3123",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "storybook": "start-storybook -p 6712 -s public",
+        "build-storybook": "build-storybook"
     },
     "dependencies": {
         "@apollo/client": "^3.5.9",
@@ -23,8 +25,18 @@
         "yup": "^0.32.11"
     },
     "devDependencies": {
+        "@babel/core": "^7.17.5",
         "@faker-js/faker": "^6.0.0-alpha.7",
+        "@storybook/addon-a11y": "^6.4.19",
+        "@storybook/addon-actions": "^6.4.19",
+        "@storybook/addon-essentials": "^6.4.19",
+        "@storybook/addon-interactions": "^6.4.19",
+        "@storybook/addon-links": "^6.4.19",
+        "@storybook/react": "^6.4.19",
+        "@storybook/testing-library": "^0.0.9",
+        "babel-loader": "^8.2.3",
         "eslint": "8.9.0",
-        "eslint-config-next": "12.1.0"
+        "eslint-config-next": "12.1.0",
+        "storybook-addon-next-router": "^3.1.1"
     }
 }
