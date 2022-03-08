@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useForm } from 'react-hook-form';
 import {
     Button,
     Box,
@@ -24,6 +25,8 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
  */
 const QuestionCard = props => {
     const { question, choices, onSelected, loading, onNextQuestion } = props;
+
+    const { handleSubmit } = useForm();
 
     return (
         <Card
