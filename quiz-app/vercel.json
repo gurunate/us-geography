@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/graphql",
+            "destination": "https://data-graph-gurunate.vercel.app/"
+        }
+    ]
+}
