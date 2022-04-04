@@ -11,7 +11,7 @@ const Layout = props => {
     return (
         <>
             <Head>
-                <title>{title} - Next Auth POC</title>
+                <title>{title} - US Geography Quiz</title>
                 <AppIcons />
             </Head>
             <Container>

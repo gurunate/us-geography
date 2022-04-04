@@ -39,6 +39,7 @@ export default function Header() {
                     <Stack direction="row" spacing={2}>
                         <Link href="/">Home</Link>
                         <Link href="/states">States</Link>
+                        <Link href="/quiz">Quiz</Link>
                     </Stack>
                 </Grid>
                 <Grid item xs={2}>

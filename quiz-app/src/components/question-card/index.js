@@ -14,6 +14,7 @@ import {
     Typography
 } from '@mui/material';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import ProgressTimer from '../progress-timer';
 
 // import styles from './styles.module.scss';
 
@@ -82,6 +83,7 @@ const QuestionCard = props => {
                             aria-labelledby="question"
                             name="choices"
                             onChange={onSelected}
+                            defaultValue={choices[0] ? choices[0] : null}
                         >
                             {choices.map((choice, idx) => (
                                 <FormControlLabel
@@ -94,6 +96,7 @@ const QuestionCard = props => {
                         </RadioGroup>
                     )}
                 </FormControl>
+                <ProgressTimer duration={10} />
             </CardContent>
             <CardActions>
                 {loading && (

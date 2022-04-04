@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box, LinearProgress, Skeleton } from '@mui/material';
+import { Box, LinearProgressWithLabel, Skeleton } from '@mui/material';
 
 let interval;
 const tick = 250;
@@ -14,16 +14,16 @@ const tick = 250;
 const ProgressTimer = props => {
     const { duration, loading } = props;
 
-    const [progress, setProgress] = useState(0);
+    const [progress, setProgress] = useState(100);
 
     useEffect(() => {
-        if (progress === 0) {
+        if (progress === 100) {
             interval = setInterval(() => {
-                setProgress(prev => prev + tick / (duration * 10));
+                setProgress(prev => prev - tick / (duration * 10));
             }, tick);
         }
 
-        if (progress >= 100) {
+        if (progress <= 0) {
             clearInterval(interval);
         }
     }, [interval, progress, setProgress]);
@@ -34,11 +34,11 @@ const ProgressTimer = props => {
                 <Skeleton variant="rectangular" width="100%" height={10} />
             )}
             {!loading && (
-                <LinearProgress
+                <LinearProgressWithLabel
                     aria-label="timer"
                     variant="determinate"
                     value={progress}
-                    color={progress >= 100 ? 'secondary' : 'primary'}
+                    color={progress <= 0 ? 'error' : 'primary'}
                 />
             )}
         </Box>
