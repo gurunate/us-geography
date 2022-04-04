@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box, LinearProgressWithLabel, Skeleton } from '@mui/material';
+import { Box, LinearProgress, Skeleton } from '@mui/material';
 
 let interval;
 const tick = 250;
@@ -34,7 +34,7 @@ const ProgressTimer = props => {
                 <Skeleton variant="rectangular" width="100%" height={10} />
             )}
             {!loading && (
-                <LinearProgressWithLabel
+                <LinearProgress
                     aria-label="timer"
                     variant="determinate"
                     value={progress}
