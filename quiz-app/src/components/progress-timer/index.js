@@ -1,9 +1,25 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box, LinearProgress, Skeleton } from '@mui/material';
+import { Box, LinearProgress, Skeleton, Typography } from '@mui/material';
 
 let interval;
 const tick = 250;
+
+function LinearProgressWithLabel(props) {
+    return (
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Box sx={{ width: '100%', mr: 1 }}>
+                <LinearProgress variant="determinate" {...props} />
+            </Box>
+            <Box sx={{ minWidth: 35 }}>
+                <Typography
+                    variant="body2"
+                    color="text.secondary"
+                >{`${Math.round(props.value)}%`}</Typography>
+            </Box>
+        </Box>
+    );
+}
 
 /**
  * Visual progress timer.
@@ -34,7 +50,7 @@ const ProgressTimer = props => {
                 <Skeleton variant="rectangular" width="100%" height={10} />
             )}
             {!loading && (
-                <LinearProgress
+                <LinearProgressWithLabel
                     aria-label="timer"
                     variant="determinate"
                     value={progress}
