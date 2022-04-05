@@ -1,4 +1,4 @@
-import React from 'react';
+import { Story } from '@storybook/react';
 
 import Component from '.';
 
@@ -7,7 +7,7 @@ const Stories = {
     component: Component
 };
 
-const Template = args => <Component {...args}>Default</Component>;
+const Template: Story = args => <Component {...args}>Default</Component>;
 
 export const Link = Template.bind({});
 

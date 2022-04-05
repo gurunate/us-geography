@@ -1,5 +1,4 @@
-import React from 'react';
-import faker from '@faker-js/faker';
+import { Story } from '@storybook/react';
 
 import Component from '.';
 
@@ -8,7 +7,7 @@ const Stories = {
     component: Component
 };
 
-const Template = args => <Component {...args} />;
+const Template: Story = args => <Component {...args} />;
 
 export const ProgressTimer = Template.bind({});
 

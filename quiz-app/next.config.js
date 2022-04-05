@@ -7,16 +7,12 @@ const nextConfig = {
         NEXT_PUBLIC_API_MOCKING
     },
     reactStrictMode: true,
-    rewrites: async () => {
-        return isProduction
-            ? []
-            : [
-                  {
-                      source: '/graphql',
-                      destination: DATA_GRAPH_HOST
-                  }
-              ];
-    }
+    rewrites: async () => [
+        {
+            source: '/graphql',
+            destination: DATA_GRAPH_HOST
+        }
+    ]
 };
 
 module.exports = nextConfig;

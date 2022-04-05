@@ -13,11 +13,11 @@ export const GET_NEXT_QUESTION = gql`
 `;
 
 const QuizPage = () => {
-    const { data, loading, errors } = useQuery(GET_NEXT_QUESTION);
+    const { data, loading } = useQuery(GET_NEXT_QUESTION);
 
     const { getNextQuestion } = data ?? [];
 
-    const handleChange = event => {
+    const handleChange = (event: any) => {
         console.log('handleChange', event.target.value);
     };
 
@@ -32,7 +32,7 @@ const QuizPage = () => {
                 question={getNextQuestion?.question}
                 choices={getNextQuestion?.choices || []}
                 onSelected={handleChange}
-                onNext={handleNextQuestion}
+                onNextQuestion={handleNextQuestion}
             />
         </Layout>
     );
