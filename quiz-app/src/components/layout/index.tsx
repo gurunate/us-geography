@@ -1,3 +1,4 @@
+import React, { FC } from 'react';
 import Head from 'next/head';
 import { Box, Container, Typography } from '@mui/material';
 
@@ -5,7 +6,11 @@ import Header from './header';
 import Footer from './footer';
 import AppIcons from './app-icons';
 
-const Layout = props => {
+export type LayoutProps = {
+    title?: string;
+};
+
+const Layout: FC<LayoutProps> = props => {
     const { children, title } = props;
 
     return (

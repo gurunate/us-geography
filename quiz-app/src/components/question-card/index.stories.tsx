@@ -1,14 +1,14 @@
-import React from 'react';
+import { Story } from '@storybook/react';
 import faker from '@faker-js/faker';
 
-import Component from '.';
+import Component, { QuestionCardProps } from '.';
 
 const Stories = {
     title: 'Components',
     component: Component
 };
 
-const Template = args => <Component {...args} />;
+const Template: Story<QuestionCardProps> = args => <Component {...args} />;
 
 export const QuestionCard = Template.bind({});
 

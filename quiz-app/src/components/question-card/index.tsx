@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import {
     Button,
@@ -18,13 +18,27 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 // import styles from './styles.module.scss';
 
+export type QuestionCardProps = {
+    choices: string[];
+    loading?: boolean;
+    onNextQuestion?: (event?: any) => void;
+    onSelected?: (event?: any) => void;
+    question: string;
+};
+
 /**
  * Question Card component.
  *
  * @returns
  */
-const QuestionCard = props => {
-    const { question, choices, onSelected, loading, onNextQuestion } = props;
+const QuestionCard: FC<QuestionCardProps> = props => {
+    const {
+        question,
+        choices,
+        onSelected,
+        loading = false,
+        onNextQuestion
+    } = props;
 
     const { handleSubmit } = useForm();
 
@@ -115,22 +129,6 @@ const QuestionCard = props => {
             </CardActions>
         </Card>
     );
-};
-
-QuestionCard.propTypes = {
-    choices: PropTypes.array,
-    loading: PropTypes.bool,
-    onNextQuestion: PropTypes.func,
-    onSelected: PropTypes.func,
-    question: PropTypes.string
-};
-
-QuestionCard.defaultProps = {
-    choices: [],
-    loading: false,
-    onNextQuestion: () => {},
-    onSelected: () => {},
-    question: ''
 };
 
 export default QuestionCard;

@@ -1,9 +1,13 @@
-import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import { FC, useEffect, useState } from 'react';
 import { Box, LinearProgress, Skeleton } from '@mui/material';
 
-let interval;
+let interval: any;
 const tick = 250;
+
+type ProgressTimerProps = {
+    duration: number;
+    loading: boolean;
+};
 
 /**
  * Visual progress timer.
@@ -11,7 +15,7 @@ const tick = 250;
  * @param {*} props
  * @returns
  */
-const ProgressTimer = props => {
+const ProgressTimer: FC<ProgressTimerProps> = props => {
     const { duration, loading } = props;
 
     const [progress, setProgress] = useState(0);
@@ -43,16 +47,6 @@ const ProgressTimer = props => {
             )}
         </Box>
     );
-};
-
-ProgressTimer.propTypes = {
-    duration: PropTypes.number,
-    loading: PropTypes.bool
-};
-
-ProgressTimer.defaultProps = {
-    duration: 10,
-    loading: false
 };
 
 export default ProgressTimer;
